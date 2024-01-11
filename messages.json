@@ -1,0 +1,57 @@
+{
+
+  //Mail Services
+  "MailServices.SendVerificationMail": "Doğrulama kodu gönderilirken bir sorun oluştu",
+
+  //UserService
+  "UserService.NotFound": "Kullanıcı bulunamadı",
+  "UserService.CreateUser": "Kullanıcı oluşturulurken sorun meydana geldi",
+  "UserService.GetUsers": "Kullanıcılar gösterilirken bir sorun oluştu",
+  "UserService.GetUser": "Kullanıcı gösterilirken bir sorun oluştu",
+  "UserService.UpdateName": "Kullanıcı ismi güncellenirken bir sorun oluştu",
+  "UserService.ContactMessage": "İletişim mesajı gönderilirken bir sorun oluştu",
+  "UserService.UpdateEMail": "Email güncellenirken bir sorun oluştu",
+  "UserService.UpdateEMailRemoved": "Email güncellenemedi",
+  "UserService.VerifyCodeByUpdateEmail": "Kod doğrulanamadı",
+  "UserService.VerifyCodeByUpdateEmailExpireDate": "Süre bitti",
+  "UserService.VerifyCode": "Kullanıcının emaili doğrulanamadı",
+  "UserService.VerifyCodeExpireDate": "Süre bitti",
+  "UserService.VerifyCodeNotFound": "Kod doğrulanamadı",
+  "UserService.PasswordReset": "Şifre güncellenirken hata oluştu",
+  "UserService.PasswordResetNotFound": "Kullanıcı mevcut değil",
+  "UserService.PasswordResetVerifyCode": "Kod doğrulanamadı",
+  "UserService.UpdatePassword": "Şifre güncellenirken hata oluştu.",
+  "UserService.UpdatePasswordCurrentPassword": "Mevcut şifrenizi yanlış girdiniz",
+  "UserService.UpdatePasswordNotFound": "Böyle bir kullanıcı yok!",
+  "UserService.Archive": "Kullanıcı silinirken hata oluştu",
+  "UserService.ArchiveNotFound": "Böyle bir kullanıcı yok",
+  "UserService.UpdateContact": "Yanıt Durumu güncellenirken bir sorun oluştu",
+
+  //LoginService
+  "LoginService.Authenticate": "Email ve şifre alanlarını kontrol edin",
+  "LoginService.TokenRefresh": "Giriş sırasında hata oluştu",
+  "LoginService.TokenRefreshUser": "Böyle bir kullanıcı bulunamadı",
+  "LoginService.AdminLogin": "Email ve şifre alanlarını kontrol edin",
+  "LoginService.AdminLoginAdminCheck": "Admin rolüne sahip değilsiniz!",
+  "LoginService.AuthenticateEmailConfirmed": "Lütfen hesabınızı e-mail üzerinden doğrulayın!",
+
+  //BlogService
+  "BlogService.NullBlog": "Blog Bulunamadı",
+  "BlogService.CreateBlog": "Blog Eklenirken Bir Sorun oluştu",
+  "BlogService.UpdateBlog": "Blog Güncellenirken Bir Sorun oluştu",
+  "BlogService.DeleteBlog": "Blog Silinirken Bir Sorun oluştu",
+  "BlogService.NullTag": "Etiket Bulunamadı",
+  "BlogService.CreateTag": "Etiket Eklenirken Bir sorun oluştu",
+  "BlogService.UpdateTag": "Etiket Güncellenirken Bir sorun oluştu",
+  "BlogService.DeleteTag": "Etiket Silinirken Bir sorun oluştu",
+
+  //FileUploadService
+  "FileUploadService.NullFile": "Dosya Bulunamadı",
+  "FileUploadService.ErrorOcurred": "Bir Hata Meydana Geldi"
+
+
+
+
+
+
+}
