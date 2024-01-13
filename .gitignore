@@ -1,6 +1,8 @@
 obj
 bin
 appsettings.json
+keys.json
+migrations
 
 # globs
 Makefile.in

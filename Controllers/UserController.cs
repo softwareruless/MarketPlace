@@ -129,39 +129,7 @@ namespace MarketPlace.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult<ResponseModel> SendContactMessage(ContactMessageAddModel model)
-        {
-            var response = _userService.SendContactMessage(model);
-            return Ok(response);
-        }
-
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        [HttpPost]
-        public ActionResult<DatatableModel<ContactMessageModel>> GetContactMessages()
-        {
-            var draw = Request.Form["draw"].FirstOrDefault();
-            var start = Request.Form["start"].FirstOrDefault();
-            var length = Request.Form["length"].FirstOrDefault();//pagesize
-            var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
-            var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
-            var searchValue = Request.Form["search[value]"].FirstOrDefault();
-            var isAnswered = Request.Form["isAnswered"].FirstOrDefault() ;
-            int pageSize = length != null ? Convert.ToInt32(length) : 0;
-            int skip = start != null ? Convert.ToInt32(start) : 0;
-            int recordsTotal = 0;
-
-            var result = _userService.GetContactMessages(sortColumn, sortColumnDirection, searchValue, recordsTotal, pageSize, skip, draw, isAnswered);
-            return Ok(result);
-        }
-
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        [HttpPost]
-        public ActionResult<ResponseModel> UpdateContactStatus(AnswerContactMessageModel model)
-        {
-            var response = _userService.UpdateContactStatus(model);
-            return Ok(response);
-        }
+        
 
 
     }

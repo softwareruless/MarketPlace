@@ -11,10 +11,6 @@ namespace MarketPlace.Utilities
         {
             CreateMap<UserAddModel ,User>();
             CreateMap<UpdateNameModel, User>();
-            CreateMap<BlogAddModel, Blog>();
-            CreateMap<BlogUpdateModel, Blog>();
-            CreateMap<ContactMessageAddModel, ContactForm>();
-            CreateMap<TagModel, Tag>();
         }
     }
 }
