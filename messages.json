@@ -35,15 +35,13 @@
   "LoginService.AdminLoginAdminCheck": "Admin rolüne sahip değilsiniz!",
   "LoginService.AuthenticateEmailConfirmed": "Lütfen hesabınızı e-mail üzerinden doğrulayın!",
 
-  //BlogService
-  "BlogService.NullBlog": "Blog Bulunamadı",
-  "BlogService.CreateBlog": "Blog Eklenirken Bir Sorun oluştu",
-  "BlogService.UpdateBlog": "Blog Güncellenirken Bir Sorun oluştu",
-  "BlogService.DeleteBlog": "Blog Silinirken Bir Sorun oluştu",
-  "BlogService.NullTag": "Etiket Bulunamadı",
-  "BlogService.CreateTag": "Etiket Eklenirken Bir sorun oluştu",
-  "BlogService.UpdateTag": "Etiket Güncellenirken Bir sorun oluştu",
-  "BlogService.DeleteTag": "Etiket Silinirken Bir sorun oluştu",
+  //ProductService
+  "ProductService.ProductNotFound": "Ürün Bulunamadı",
+  "ProductService.SellerNotFound": "Satıcı Bulunamadı",
+  "ProductService.AddPhotos": "Fotoğraflar eklenirken bir sorun oluştu",
+  "ProductService.CreateProduct": "Ürün Eklenirken Bir Sorun oluştu",
+  "ProductService.UpdateProduct": "Ürün Güncellenirken Bir Sorun oluştu",
+  "ProductService.DeleteProduct": "Ürün Silinirken Bir Sorun oluştu",
 
   //FileUploadService
   "FileUploadService.NullFile": "Dosya Bulunamadı",

@@ -26,13 +26,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.14" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="Data\Enums\" />
-	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Data\Enums\" />
 	</ItemGroup>

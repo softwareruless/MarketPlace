@@ -42,9 +42,6 @@ namespace MarketPlace.Service
             {
                 var result = _signInManager.PasswordSignInAsync(user, model.Password, false, true).Result;
 
-                //Random rand = new Random();
-                //Thread.Sleep(rand.Next(1, 4) * 1000);
-
                 if (result.Succeeded)
                 {
                     var role = await _userManager.GetRolesAsync(user);
@@ -200,7 +197,6 @@ namespace MarketPlace.Service
                             {
                                 Subject = new ClaimsIdentity(new Claim[]
                                 {
-                                //new Claim(ClaimTypes.Name, user.Id.ToString()),
                                  new Claim(ClaimTypes.Name, user.UserName),
                                  new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                                  new Claim(ClaimTypes.Email,user.Email),

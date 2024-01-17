@@ -10,53 +10,69 @@ namespace MarketPlace.Utilities
     {
         private static readonly IConfiguration _configuration;
 
-        //public static async Task<UploadBlogResponseModel> UploadBlog(BlogAddModel blogAddModel)
-        //{
-        //    string path = "";
+        public static async Task<PhotosResponseModel> UploadPhotos(PhotoAddModel model)
+        {
+            string path = "";
 
-        //    try
-        //    {
-        //        if (blogAddModel.Photo.Length > 0)
-        //        {
-        //            var pathProj = Environment.CurrentDirectory;
-        //            path = Path.GetFullPath(pathProj + "\\wwwroot\\BlogPhotos");
-        //            var rnd = new Random();
-        //            var random = RandomHelper.CreateRandomDigits(rnd, 15);
-        //            var photoName = random + "-" + blogAddModel.Photo.FileName.Trim().Replace(" ", "_");
-        //            if (!Directory.Exists(path))
-        //            {
-        //                Directory.CreateDirectory(path);
-        //            }
-        //            using (var fileStream = new FileStream(Path.Combine(path, photoName), FileMode.Create))
-        //            {
-        //                await blogAddModel.Photo.CopyToAsync(fileStream);
-        //            }
+            try
+            {
+                if (model.Photos.Where(x=>x.Length > 0).Count() > model.Photos.Count())
+                {
+                    var pathProj = Environment.CurrentDirectory;
+                    path = Path.GetFullPath(pathProj + "\\wwwroot\\ProductPhotos");
+                    var rnd = new Random();
 
-        //            return new UploadBlogResponseModel()
-        //            {
-        //                Success = true,
-        //                Url = photoName
-        //            };
-        //        }
-        //        else
-        //        {
-        //            return new UploadBlogResponseModel()
-        //            {
-        //                Success = false,
-        //                Message = _configuration["FileUploadService.NullFile"]
-        //            };
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new UploadBlogResponseModel()
-        //        {
-        //            Success = false,
-        //            //Message = _configuration["FileUploadService.ErrorOcurred"]
-        //            Message = ex.Message
-        //        };
-        //    }
-        //}
+                    var photoNames = new List<string>() { };
+
+                    foreach (var photo in model.Photos)
+                    {
+                        var random = RandomHelper.CreateRandomDigits(rnd, 15);
+                        var photoName = random + "-" + photo.FileName.Trim().Replace(" ", "_");
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        using (var fileStream = new FileStream(Path.Combine(path, photoName), FileMode.Create))
+                        {
+                            await photo.CopyToAsync(fileStream);
+                        }
+
+                        photoNames.Add(photoName);
+                    }
+
+                    if (photoNames.Count != model.Photos.Count())
+                    {
+                        return new PhotosResponseModel()
+                        {
+                            Success = false,
+                            Message = _configuration["FileUploadService.ErrorOcurred"]
+                        };
+                    }
+
+                    return new PhotosResponseModel()
+                    {
+                        Success = true,
+                        Names = photoNames
+                    };
+                }
+                else
+                {
+                    return new PhotosResponseModel()
+                    {
+                        Success = false,
+                        Message = _configuration["FileUploadService.NullFile"]
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new PhotosResponseModel()
+                {
+                    Success = false,
+                    Message = _configuration["FileUploadService.ErrorOcurred"]
+                };
+            }
+        }
 
         //public static async Task<UploadBlogResponseModel> UpdateBlog(BlogUpdateModel blogUpdateModel)
         //{

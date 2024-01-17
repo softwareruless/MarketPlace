@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using MarketPlace.Data.Enums;
 
 namespace MarketPlace.Data.Entities
 {
@@ -17,6 +18,8 @@ namespace MarketPlace.Data.Entities
 
 		public string ProfilePhoto { get; set; }
 		public string CoverPhoto { get; set; }
+
+		public Status Status { get; set; }
 	}
 }
 
