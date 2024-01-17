@@ -1,7 +1,8 @@
 obj
 bin
 appsettings.json
-keys.json
+appsettings.Development.json
+
 migrations
 
 # globs
