@@ -122,6 +122,7 @@ builder.Services.AddAuthentication(OAuthValidationDefaults.AuthenticationScheme)
 
 builder.Services.AddScoped<IConcurrencyService, ConcurrencyService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserManager<User>>();
 

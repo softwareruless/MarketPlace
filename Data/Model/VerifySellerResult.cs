@@ -1,4 +1,6 @@
 ﻿using System;
+using MarketPlace.Data.Entities;
+
 namespace MarketPlace.Data.Model
 {
 	public class GetSellerIdResult : ResponseModel
@@ -6,10 +8,19 @@ namespace MarketPlace.Data.Model
 		public int SellerId { get; set; }
 	}
 
-    public class GetSellerIdAndProductIdResult : ResponseModel
+    public class SellerVerifyResult : ResponseModel
     {
-        public int SellerId { get; set; }
-        public int ProductId { get; set; }
+        public Seller Seller { get; set; }
+    }
+
+    public class ProductVerifyResult : SellerVerifyResult
+    {
+        public Product Product { get; set; }
+    }
+
+    public class ProductPhotoVerifyResult : ProductVerifyResult
+    {
+        public ProductPhoto PPhoto { get; set; }
     }
 }
 

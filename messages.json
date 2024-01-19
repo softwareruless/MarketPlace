@@ -39,6 +39,7 @@
   "ProductService.ProductNotFound": "Ürün Bulunamadı",
   "ProductService.SellerNotFound": "Satıcı Bulunamadı",
   "ProductService.AddPhotos": "Fotoğraflar eklenirken bir sorun oluştu",
+  "ProductService.DeleteProductPhoto": "Fotoğraf silinirken bir sorun oluştu",
   "ProductService.CreateProduct": "Ürün Eklenirken Bir Sorun oluştu",
   "ProductService.UpdateProduct": "Ürün Güncellenirken Bir Sorun oluştu",
   "ProductService.DeleteProduct": "Ürün Silinirken Bir Sorun oluştu",
