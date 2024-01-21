@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MarketPlace.Data.Entities;
 using MarketPlace.Data.Model;
 using MarketPlace.Data.Model.ReturnModel;
-using MarketPlace.Service.Interfaces;
+using MarketPlace.Service;
 using MarketPlace.Utilities.Filter;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,13 +17,11 @@ namespace MarketPlace.Controllers
     public class AuthenticationController : ApiKeyAuthBaseController
     {
         private readonly ILoginService _authenticationService;
-        private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
 
-        public AuthenticationController(ILoginService authenticationService, SignInManager<User> signInManager, UserManager<User> userManager)
+        public AuthenticationController(ILoginService authenticationService, UserManager<User> userManager)
         {
             _authenticationService = authenticationService;
-            _signInManager = signInManager;
             _userManager = userManager;
         }
 

@@ -2,7 +2,6 @@
 using MarketPlace.Data;
 using MarketPlace.Data.Entities;
 using MarketPlace.Service;
-using MarketPlace.Service.Interfaces;
 using MarketPlace.Utilities.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -123,6 +122,7 @@ builder.Services.AddAuthentication(OAuthValidationDefaults.AuthenticationScheme)
 builder.Services.AddScoped<IConcurrencyService, ConcurrencyService>();
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ISellerService, SellerService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserManager<User>>();
 

@@ -1,15 +1,9 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using MarketPlace.Data;
 using MarketPlace.Data.Entities;
 using MarketPlace.Data.Model;
 using MarketPlace.Data.Model.ReturnModel;
-using MarketPlace.Service.Interfaces;
 using MarketPlace.Utilities.TokenHelper;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

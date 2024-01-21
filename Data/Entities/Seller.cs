@@ -9,7 +9,7 @@ namespace MarketPlace.Data.Entities
 		public int UserId { get; set; }
 
 		public string Name { get; set; }
-		public string FirsName { get; set; }
+		public string FirstName { get; set; }
 		public string Surname { get; set; }
 		public string TaxNumber { get; set; }
 		public string TaxBuilding { get; set; }

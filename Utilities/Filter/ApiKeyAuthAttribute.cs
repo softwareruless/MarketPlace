@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
-using MarketPlace.Service.Interfaces;
+using MarketPlace.Service;
 
 namespace MarketPlace.Utilities.Filter
 {

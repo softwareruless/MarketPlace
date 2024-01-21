@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using MarketPlace.Data.Entities;
 using MarketPlace.Data;
 using MarketPlace.Data.Model;
+using Microsoft.AspNetCore.Hosting.Server;
 
 namespace MarketPlace.Utilities
 {
@@ -16,7 +17,7 @@ namespace MarketPlace.Utilities
 
             try
             {
-                if (model.Photos.Where(x=>x.Length > 0).Count() > model.Photos.Count())
+                if (model.Photos.Where(x => x.Length > 0).Count() > model.Photos.Count())
                 {
                     var pathProj = Environment.CurrentDirectory;
                     path = Path.GetFullPath(pathProj + "\\wwwroot\\ProductPhotos");
@@ -74,6 +75,41 @@ namespace MarketPlace.Utilities
             }
         }
 
+        public static void DeletePhoto(string PhotoPath)
+        {
+            string path = "";
+
+            var pathProj = Environment.CurrentDirectory;
+            path = Path.Combine(Path.GetFullPath(pathProj + "\\wwwroot\\ProductPhotos"), PhotoPath);
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
+        }
+
+        public static void DeletePhotos(DeletePhotosModel model)
+        {
+            string path = "";
+
+            var pathProj = Environment.CurrentDirectory;
+            path = Path.GetFullPath(pathProj + "\\wwwroot\\ProductPhotos");
+
+            foreach (var photoPath in model.Paths)
+            {
+
+                var combinedPath = Path.Combine(path, photoPath);
+
+                if (File.Exists(combinedPath))
+                {
+                    File.Delete(combinedPath);
+                }
+            }
+
+        }
+
+
         //public static async Task<UploadBlogResponseModel> UpdateBlog(BlogUpdateModel blogUpdateModel)
         //{
         //    string path = "";
@@ -123,5 +159,10 @@ namespace MarketPlace.Utilities
         //}
 
 
+    }
+
+    public class DeletePhotosModel
+    {
+        public List<string> Paths { get; set; }
     }
 }

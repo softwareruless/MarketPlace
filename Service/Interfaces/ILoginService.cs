@@ -2,7 +2,7 @@
 using MarketPlace.Data.Model;
 using MarketPlace.Data.Entities;
 
-namespace MarketPlace.Service.Interfaces
+namespace MarketPlace.Service
 {
     public interface ILoginService
     {

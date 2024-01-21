@@ -99,7 +99,7 @@ namespace MarketPlace.Service
             };
         }
 
-        public ResponseModel AddPhoto(PhotoAddModel model, int UserId)
+        public async Task<ResponseModel> AddPhoto(PhotoAddModel model, int UserId)
         {
             var sellerAndProductResult = GetSellerIdWithUserIdAndProductId(UserId, model.ProductId);
 
@@ -112,7 +112,7 @@ namespace MarketPlace.Service
                 };
             }
 
-            var photoUploadResult = UploadPhotoHelper.UploadPhotos(model).Result;
+            var photoUploadResult = await UploadPhotoHelper.UploadPhotos(model);
 
             if (!photoUploadResult.Success)
             {
@@ -148,7 +148,7 @@ namespace MarketPlace.Service
             };
         }
 
-        public ResponseModel DeletePhoto(int PhotoId,int UserId)
+        public ResponseModel DeletePhoto(int PhotoId, int UserId)
         {
             var verifyProductAndSellerResult = GetSellerIdWithUserIdAndPPhotoId(UserId, PhotoId);
 
@@ -160,6 +160,8 @@ namespace MarketPlace.Service
                     Message = _configuration[""]
                 };
             }
+
+            UploadPhotoHelper.DeletePhoto(verifyProductAndSellerResult.PPhoto.Path);
 
             _context.ProductPhoto.Remove(verifyProductAndSellerResult.PPhoto);
             var result = _context.SaveChanges();
@@ -235,6 +237,22 @@ namespace MarketPlace.Service
                     Message = _configuration["ProductService.DeleteProduct"]
                 };
             }
+            // todo check here about delete photos
+            var photos = _context.ProductPhoto.Where(x => x.ProductId == verifySellerAndProductResult.Product.Id).ToList();
+
+            _context.ProductPhoto.RemoveRange(photos);
+            result = _context.SaveChanges();
+
+            if (!(result >= photos.Count))
+            {
+                return new ResponseModel()
+                {
+                    Success = false,
+                    Message = _configuration["ProductService.DeleteProduct"]
+                };
+            }
+
+            UploadPhotoHelper.DeletePhotos(new DeletePhotosModel() { Paths = photos.Select(x => x.Path).ToList() });
 
             return new ResponseModel()
             {
@@ -325,7 +343,7 @@ namespace MarketPlace.Service
             && x.UserId == UserId
             && x.Status == Data.Enums.Status.Approved);
 
-            var pphoto = _context.ProductPhoto.Include(x=>x.Product).FirstOrDefault(x => !x.IsDeleted);
+            var pphoto = _context.ProductPhoto.Include(x => x.Product).FirstOrDefault(x => !x.IsDeleted);
 
             if (pphoto == null || pphoto.Product.SellerId != seller.Id)
             {

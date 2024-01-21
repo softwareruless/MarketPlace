@@ -1,4 +1,4 @@
-﻿namespace MarketPlace.Service.Interfaces
+﻿namespace MarketPlace.Service
 {
     public interface IConcurrencyService
     {
