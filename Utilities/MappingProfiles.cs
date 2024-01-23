@@ -12,6 +12,7 @@ namespace MarketPlace.Utilities
             CreateMap<UserAddModel ,User>();
             CreateMap<UpdateNameModel, User>();
             CreateMap<ProductAddModel, Product>();
+            CreateMap<SellerAddModel, Seller>();
         }
     }
 }

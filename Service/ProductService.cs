@@ -161,7 +161,7 @@ namespace MarketPlace.Service
                 };
             }
 
-            UploadPhotoHelper.DeletePhoto(verifyProductAndSellerResult.PPhoto.Path);
+            UploadPhotoHelper.DeletePhoto(verifyProductAndSellerResult.PPhoto.Path, "ProductPhotos");
 
             _context.ProductPhoto.Remove(verifyProductAndSellerResult.PPhoto);
             var result = _context.SaveChanges();
@@ -185,6 +185,7 @@ namespace MarketPlace.Service
         {
             var product = _context.Product.Where(x => x.Id == productId).Select(x => new ProductDetail()
             {
+                Id = x.Id,
                 SellerId = x.SellerId,
 
                 Name = x.Name,
@@ -252,7 +253,7 @@ namespace MarketPlace.Service
                 };
             }
 
-            UploadPhotoHelper.DeletePhotos(new DeletePhotosModel() { Paths = photos.Select(x => x.Path).ToList() });
+            UploadPhotoHelper.DeletePhotos(new DeletePhotosModel() { Paths = photos.Select(x => x.Path).ToList() }, "ProductPhotos");
 
             return new ResponseModel()
             {
@@ -273,6 +274,7 @@ namespace MarketPlace.Service
             var filteredProducts = products.
             Select(x => new ProductDetail()
             {
+                Id = x.Id,
                 SellerId = x.SellerId,
 
                 Name = x.Name,
@@ -362,6 +364,7 @@ namespace MarketPlace.Service
             };
         }
         #endregion
+
     }
 }
 

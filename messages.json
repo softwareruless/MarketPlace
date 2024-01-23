@@ -44,6 +44,15 @@
   "ProductService.UpdateProduct": "Ürün Güncellenirken Bir Sorun oluştu",
   "ProductService.DeleteProduct": "Ürün Silinirken Bir Sorun oluştu",
 
+  //ProductService
+  "SellerService.SellerNotFound": "Satıcı Bulunamadı",
+  "SellerService.AddDocs": "Belge Eklenirken Bir Sorun Oluştu",
+  "SellerService.CreateSeller": "Satıcı Oluşturulurken Bir Sorun Oluştu",
+  "SellerService.UpdateSeller": "Satıcı Güncellenirken Bir Sorun Oluştu",
+  "SellerService.DeleteSeller": "Satıcı Silinirken Bir Sorun Oluştu",
+  "SellerService.ProfileUpload": "Profil Fotoğrafı Yüklenirken Bir Sorun Oluştu",
+  "SellerService.CoverUpload": "Kapak Fotoğrafı Yüklenirken Bir Sorun Oluştu",
+
   //FileUploadService
   "FileUploadService.NullFile": "Dosya Bulunamadı",
   "FileUploadService.ErrorOcurred": "Bir Hata Meydana Geldi"

@@ -37,6 +37,7 @@ namespace MarketPlace.Data.Model
     
     public class ProductDetail
     {
+        public int Id { get; set; }
         public int SellerId { get; set; }
 
         public string Name { get; set; }
