@@ -19,7 +19,11 @@ namespace MarketPlace.Data.Entities
 		public string ProfilePhoto { get; set; }
 		public string CoverPhoto { get; set; }
 
+		public string RejectReason { get; set; }
+
 		public Status Status { get; set; }
+
+		public virtual User User { get; set; }
 	}
 }
 

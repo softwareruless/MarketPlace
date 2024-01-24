@@ -63,7 +63,7 @@ namespace MarketPlace.Data.Model
         public List<SellerDetail> Sellers { get; set; }
     }
 
-    public class DocumentAddModel
+    public class DocumentAdd
     {
         public IFormFile Document { get; set; }
         public DocType DocType { get; set; }
@@ -72,12 +72,7 @@ namespace MarketPlace.Data.Model
     public class DocumentsAddModel
     {
         public int SellerId { get; set; }
-        public List<DocumentAddModel> Documents { get; set; }
-    }
-
-    public class DocumentsResponseModel : ResponseModel
-    {
-        public List<DocumentResponse> Docs { get; set; }
+        public List<DocumentAdd> Documents { get; set; }
     }
 
     public class DocumentResponse
@@ -86,6 +81,22 @@ namespace MarketPlace.Data.Model
         public DocType DocType { get; set; }
     }
 
+    public class DocumentsResponseModel : ResponseModel
+    {
+        public List<DocumentResponse> Docs { get; set; }
+    }
+
+    public class ApproveSellerModel
+    {
+        public int SellerId { get; set; }
+        public Status Status { get; set; }
+        public string RejectReason { get; set; }
+    }
+
+    public class SellerPagingModel : PagingParams
+    {
+        public Status? Status { get; set; }
+    }
 
 }
 

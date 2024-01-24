@@ -51,5 +51,75 @@ namespace MarketPlace.Utilities
 
         }
 
+        public static ResponseModel SendRejectDocumentMail(string Email)
+        {
+            try
+            {
+                var code = RandomHelper.CreateRandomDigits(new Random(), 6);
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(_configuration["MailAddress"]));
+                email.To.Add(MailboxAddress.Parse(Email));
+                email.Subject = "Belgeniz Reddedildi";
+                email.Body = new TextPart(TextFormat.Html) { Text = "Yüklediğiniz satıcı belgelerinden bazıları reddedildi. Belgelerinizi kontrol edip tekrar yükleyiniz." };
+
+                // send email
+                using var smtp = new SmtpClient();
+                smtp.Connect(_configuration["MailHost"], 587, SecureSocketOptions.None);
+                smtp.Authenticate(_configuration["MailAddress"], _configuration["MailPassword"]);
+                smtp.Send(email);
+                smtp.Disconnect(true);
+
+                return new ResponseModel<string>()
+                {
+                    Success = true,
+                };
+            }
+            catch (Exception e)
+            {
+                return new ResponseModel<string>()
+                {
+                    Success = false,
+                    Message = _configuration["MailServices.SendVerificationMail"]
+                };
+            }
+
+        }
+
+        public static ResponseModel SendApproveSellerMail(string Email,bool approved)
+        {
+            try
+            {
+                var code = RandomHelper.CreateRandomDigits(new Random(), 6);
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(_configuration["MailAddress"]));
+                email.To.Add(MailboxAddress.Parse(Email));
+                email.Subject = $"Satıcı profiliniz {(approved == true ? "onaylandı" : "reddedildi")}. ";
+                email.Body = new TextPart(TextFormat.Html) { Text = $"Satıcı profiliniz {(approved == true ? "onaylandı" : "reddedildi. Satıcı profilinizi kontrol ediniz")}. " };
+
+                // send email
+                using var smtp = new SmtpClient();
+                smtp.Connect(_configuration["MailHost"], 587, SecureSocketOptions.None);
+                smtp.Authenticate(_configuration["MailAddress"], _configuration["MailPassword"]);
+                smtp.Send(email);
+                smtp.Disconnect(true);
+
+                return new ResponseModel<string>()
+                {
+                    Success = true,
+                };
+            }
+            catch (Exception e)
+            {
+                return new ResponseModel<string>()
+                {
+                    Success = false,
+                    Message = _configuration["MailServices.SendVerificationMail"]
+                };
+            }
+
+        }
+
     }
 }

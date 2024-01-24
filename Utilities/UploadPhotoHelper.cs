@@ -173,7 +173,7 @@ namespace MarketPlace.Utilities
 
             try
             {
-                if (model.Documents.Where(x => x.Document.Length > 0).Count() > model.Documents.Count())
+                if (model.Documents.Where(x => x.Document.Length > 0).Count() > model.Documents.Count)
                 {
                     path = Path.GetFullPath(pathProj + "\\wwwroot\\SellerDocument");
                     var rnd = new Random();
